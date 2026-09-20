@@ -1,8 +1,59 @@
 .page {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
   padding: clamp(24px, 6vw, 64px);
+}
+
+/* Matches WelcomeStep.tsx's three-blob background exactly: solid,
+   low-opacity color fields, not blurred gradients. */
+.blobLayer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 999px;
+}
+
+.blobA {
+  width: 46vw;
+  max-width: 620px;
+  aspect-ratio: 1;
+  background: var(--lavender);
+  opacity: 0.55;
+  top: -18vw;
+  right: -12vw;
+}
+
+.blobB {
+  width: 36vw;
+  max-width: 480px;
+  aspect-ratio: 1;
+  background: var(--peach);
+  opacity: 0.3;
+  bottom: -12vw;
+  left: -10vw;
+}
+
+.blobC {
+  width: 26vw;
+  max-width: 340px;
+  aspect-ratio: 1;
+  background: var(--sage);
+  opacity: 0.25;
+  top: 34%;
+  left: -8vw;
+}
+
+.page > *:not(.blobLayer) {
+  position: relative;
+  z-index: 1;
 }
 
 .header {
@@ -69,14 +120,18 @@
   }
 }
 
+/* Matches WelcomeStep.tsx exactly: bold system sans (not the Fraunces
+   serif used elsewhere), two-line stagger, second line in primary indigo. */
 .headline {
-  font-family: var(--font-serif), serif;
   font-weight: 700;
-  font-size: clamp(2.25rem, 4.2vw, 3.25rem);
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
   margin: 0;
-  text-wrap: balance;
+}
+
+.headlineMuted {
+  color: var(--primary);
 }
 
 .subhead {
@@ -464,7 +519,410 @@
   background: rgba(23, 23, 23, 0.3);
 }
 
+/* ── More-from-the-app section ────────────────────────────────────── */
+
+.moreSection {
+  width: 100%;
+  max-width: 1100px;
+  margin: clamp(56px, 10vh, 120px) auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(28px, 5vh, 40px);
+}
+
+.moreHeading {
+  font-family: var(--font-serif), serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  text-align: center;
+  margin: 0;
+}
+
+.moreGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(28px, 4vw, 48px);
+  width: 100%;
+}
+
+.moreItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 240px;
+}
+
+.moreCaption {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--muted);
+  text-align: center;
+  margin: 0;
+}
+
+.phoneSmall {
+  width: clamp(200px, 20vw, 232px);
+  aspect-ratio: 9 / 19.3;
+  background: #17171a;
+  border-radius: 38px;
+  padding: 10px;
+  box-shadow:
+    0 16px 32px rgba(23, 23, 23, 0.14),
+    0 3px 8px rgba(23, 23, 23, 0.07);
+  position: relative;
+}
+
+.sectionTitle {
+  font-family: var(--font-serif), serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink);
+  margin: 0;
+}
+
+/* ── Discover screen ──────────────────────────────────────────────── */
+
+.locationChip {
+  align-self: flex-start;
+  background: var(--lavender);
+  color: var(--primary-dark);
+  font-size: 0.62rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--warm-white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 7px 9px;
+  color: var(--muted);
+  font-size: 0.62rem;
+}
+
+.searchBar svg {
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
+  color: var(--muted);
+}
+
+.filterRow {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.filterChip {
+  font-size: 0.58rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--warm-white);
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.filterChipActive {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.venueList {
+  background: var(--warm-white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.venueRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+}
+
+.venueRowDivider {
+  border-top: 1px solid var(--line);
+}
+
+.venuePhoto {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--paper);
+}
+
+.venueBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.venueTitle {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.venueMeta {
+  font-size: 0.56rem;
+  color: var(--muted);
+  margin: 1px 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.venueStat {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.venueStat svg {
+  width: 9px;
+  height: 9px;
+}
+
+/* ── Plan / journey screen ────────────────────────────────────────── */
+
+.journeyEyebrow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.6rem;
+  color: var(--muted);
+}
+
+.journeyDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--primary-dark);
+}
+
+.journeyTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.journeyTitle {
+  font-family: var(--font-serif), serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink);
+  margin: 0;
+}
+
+.journeyCover {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid var(--warm-white);
+  flex-shrink: 0;
+}
+
+.journeyMembers {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: -6px;
+}
+
+.avatar {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--lavender);
+  color: var(--primary-dark);
+  font-size: 0.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--warm-white);
+}
+
+.avatarOverlap {
+  margin-left: -6px;
+}
+
+.journeyMembersText {
+  font-size: 0.6rem;
+  color: var(--muted);
+}
+
+.progressTrack {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.progressFill {
+  display: block;
+  height: 100%;
+  width: 62%;
+  border-radius: 2px;
+  background: var(--primary-dark);
+}
+
+.progressLabel {
+  font-size: 0.58rem;
+  color: var(--muted);
+  margin-top: -8px;
+}
+
+.mediaStrip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--warm-white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 8px;
+  margin-top: 2px;
+}
+
+.mediaThumbs {
+  display: flex;
+  align-items: center;
+}
+
+.mediaThumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1.5px solid var(--warm-white);
+  background: var(--paper);
+}
+
+.mediaThumbOverlap {
+  margin-left: -9px;
+}
+
+.mediaStripBody {
+  flex: 1;
+}
+
+.mediaStripTitle {
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+}
+
+.mediaStripMeta {
+  font-size: 0.55rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ── Journal screen ───────────────────────────────────────────────── */
+
+.journalCard {
+  position: relative;
+  background: var(--warm-white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow: hidden;
+}
+
+.journalHead {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.journalBadge {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--journal-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--journal-fg);
+  flex-shrink: 0;
+}
+
+.journalBadge svg {
+  width: 9px;
+  height: 9px;
+}
+
+.journalEyebrow {
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--journal-fg);
+}
+
+.journalDate {
+  font-size: 0.56rem;
+  color: var(--muted);
+}
+
+.journalQuote {
+  position: absolute;
+  top: -6px;
+  right: 8px;
+  font-family: var(--font-serif), serif;
+  font-size: 2.2rem;
+  color: #e6c979;
+  opacity: 0.3;
+}
+
+.journalEntry {
+  position: relative;
+  font-size: 0.68rem;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0;
+}
+
+.memoryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+.memoryTile {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  object-fit: cover;
+  background: var(--paper);
+}
+
 .footer {
   font-size: 0.8rem;
   color: var(--muted);
+  margin-top: clamp(48px, 8vh, 80px);
 }

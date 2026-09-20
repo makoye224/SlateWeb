@@ -9,6 +9,8 @@
   --primary: #5b5ce2;
   --primary-dark: #4546b8;
   --lavender: #e9e8ff;
+  --peach: #f3c7b5;
+  --sage: #b8c7b0;
 
   --cat-rest-fg: #5c6c52;
   --cat-rest-bg: #ebf0e6;
@@ -16,6 +18,9 @@
   --cat-pick-bg: #faeae0;
   --cat-fixed-fg: var(--primary-dark);
   --cat-fixed-bg: var(--lavender);
+
+  --journal-fg: #8a6d2e;
+  --journal-bg: #f7efdd;
 
   --background: var(--warm-white);
   --foreground: var(--ink);
@@ -48,6 +53,9 @@
     --cat-fixed-fg: #8a8bef;
     --cat-fixed-bg: rgba(138, 139, 239, 0.18);
 
+    --journal-fg: #d9c589;
+    --journal-bg: rgba(230, 201, 121, 0.14);
+
     --background: var(--warm-white);
     --foreground: var(--ink);
   }
@@ -62,6 +70,7 @@ body {
   color: var(--foreground);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   margin: 0;
+  overflow-x: hidden;
 }
 
 /* Browser surfaces carry the brand too — no unstyled defaults. */
