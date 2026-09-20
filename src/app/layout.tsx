@@ -9,10 +9,23 @@ const fraunces = Fraunces({
   style: ["normal"],
 });
 
+const description =
+  "Free time isn't the shortage. A plan for it is. Slate turns the free time you already have into a day-by-day plan, rest included, solo or with someone you've already chosen. Coming soon for iOS and Android.";
+
 export const metadata: Metadata = {
   title: "Slate",
-  description:
-    "Slate is an app that curates what to do with the time you already have: solo, or with the person you've already chosen. Coming soon for iOS and Android.",
+  description,
+  openGraph: {
+    title: "Slate: a plan for the time you already have",
+    description,
+    siteName: "Slate",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Slate: a plan for the time you already have",
+    description,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import { EmailCapture } from "./EmailCapture";
 
 const timeline: Array<{
   time: string;
@@ -29,9 +30,9 @@ const venues: Array<{
   rating: string;
   price: string;
 }> = [
-  { photo: "https://picsum.photos/seed/slate-cafe/120/120", title: "Corner cafe", meta: "Food & drink · Ballard", rating: "4.7", price: "$$" },
-  { photo: "https://picsum.photos/seed/slate-gallery/120/120", title: "Photo gallery", meta: "Culture · Fremont", rating: "4.5", price: "$" },
-  { photo: "https://picsum.photos/seed/slate-trail/120/120", title: "Discovery Park", meta: "Outdoors · Magnolia", rating: "4.9", price: "Free" },
+  { photo: "/img/cafe.svg", title: "Corner cafe", meta: "Food & drink · Ballard", rating: "4.7", price: "$$" },
+  { photo: "/img/gallery.svg", title: "Photo gallery", meta: "Culture · Fremont", rating: "4.5", price: "$" },
+  { photo: "/img/trail.svg", title: "Discovery Park", meta: "Outdoors · Magnolia", rating: "4.9", price: "Free" },
 ];
 
 const journeyItems: Array<{ time: string; title: string; reason: string; state: "past" | "current" }> = [
@@ -39,11 +40,36 @@ const journeyItems: Array<{ time: string; title: string; reason: string; state: 
   { time: "Sat", title: "Pike Place + ferry to Bainbridge", reason: "The one full day out.", state: "current" },
 ];
 
-const memories = [
-  "https://picsum.photos/seed/slate-mem1/160/160",
-  "https://picsum.photos/seed/slate-mem2/160/160",
-  "https://picsum.photos/seed/slate-mem3/160/160",
-  "https://picsum.photos/seed/slate-mem4/160/160",
+const memories = ["/img/memory-1.svg", "/img/memory-2.svg", "/img/memory-3.svg", "/img/memory-4.svg"];
+
+const howSteps: Array<{ title: string; body: string }> = [
+  {
+    title: "Pick a horizon",
+    body: "Tonight, this week, or a fixed window, like a two-week visit.",
+  },
+  {
+    title: "Say who's in",
+    body: "Just you, or someone you invite. Everyone already knows each other.",
+  },
+  {
+    title: "Get a day-by-day plan",
+    body: "Specific activities mixed with real rest, each with a one-line reason.",
+  },
+];
+
+const differentiators: Array<{ title: string; body: string }> = [
+  {
+    title: "Every suggestion explains itself",
+    body: "No “you might like this.” Each item carries the actual reason it's there.",
+  },
+  {
+    title: "Rest is a real suggestion",
+    body: "Not a fallback for an empty slot. A first-class part of the plan, on purpose.",
+  },
+  {
+    title: "Works before you sign up",
+    body: "Build and generate a full plan as a guest. Make an account only if you want to keep it.",
+  },
 ];
 
 function MapPinIcon() {
@@ -177,18 +203,17 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.textCol}>
           <h1 className={styles.headline}>
-            Make room
+            Free time isn&rsquo;t the shortage.
             <br />
-            <span className={styles.headlineMuted}>for a life.</span>
+            <span className={styles.headlineMuted}>A plan for it is.</span>
           </h1>
           <p className={styles.subhead}>
-            Solo nights. Time with the people you care about. Visits worth
-            planning around.
+            Slate turns the free time you already have into a specific,
+            day-by-day plan, rest included, for yourself, or someone
+            you&rsquo;ve already chosen.
           </p>
-          <p className={styles.status}>
-            For iOS and Android. Still in the works.
-            <a href="mailto:slate@ndotoni.com">Notify me</a>
-          </p>
+          <p className={styles.status}>For iOS and Android. Still in the works.</p>
+          <EmailCapture />
         </div>
 
         <PhoneFrame>
@@ -216,6 +241,41 @@ export default function Home() {
           <TimelineRail items={timeline} />
         </PhoneFrame>
       </main>
+
+      <section className={styles.howSection} aria-labelledby="how-it-works-heading">
+        <span className={styles.howEyebrow} id="how-it-works-heading">
+          HOW IT WORKS
+        </span>
+        <div className={styles.howSteps}>
+          {howSteps.map((step, i) => (
+            <div className={styles.howStep} key={step.title}>
+              <span className={styles.howNumber}>{i + 1}</span>
+              <div>
+                <p className={styles.howTitle}>{step.title}</p>
+                <p className={styles.howBody}>{step.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.diffSection} aria-labelledby="diff-heading">
+        <h2 className={styles.diffHeading} id="diff-heading">
+          Not a calendar.
+        </h2>
+        <p className={styles.diffLede}>
+          A calendar tells you what&rsquo;s already booked. Slate tells you
+          what to do with what&rsquo;s open.
+        </p>
+        <div className={styles.diffGrid}>
+          {differentiators.map((item) => (
+            <div className={styles.diffCard} key={item.title}>
+              <p className={styles.diffCardTitle}>{item.title}</p>
+              <p className={styles.diffCardBody}>{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section className={styles.moreSection}>
         <h2 className={styles.moreHeading}>The rest of the app</h2>
@@ -251,8 +311,7 @@ export default function Home() {
               </div>
             </PhoneFrame>
             <p className={styles.moreCaption}>
-              Discover — real places nearby, with photos, ratings, and one
-              tap to add to a plan.
+              Browse ideas by mood and category, and drop them into a plan.
             </p>
           </div>
 
@@ -264,7 +323,7 @@ export default function Home() {
               </div>
               <div className={styles.journeyTitleRow}>
                 <p className={styles.journeyTitle}>Seattle, together</p>
-                <img className={styles.journeyCover} src="https://picsum.photos/seed/slate-seattle/120/120" alt="" />
+                <img className={styles.journeyCover} src="/img/seattle.svg" alt="" />
               </div>
               <div className={styles.journeyMembers}>
                 <span className={styles.avatar}>Y</span>
