@@ -1,0 +1,470 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  padding: clamp(24px, 6vw, 64px);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon {
+  border-radius: 10px;
+  display: block;
+}
+
+.headerText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wordmark {
+  font-family: var(--font-serif), serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.platforms {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+
+.main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  align-self: center;
+  width: 100%;
+  max-width: 1100px;
+  margin-top: clamp(24px, 6vh, 64px);
+  gap: clamp(32px, 6vw, 72px);
+}
+
+@media (max-width: 860px) {
+  .main {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+}
+
+.textCol {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+@media (max-width: 860px) {
+  .textCol {
+    align-items: center;
+  }
+}
+
+.headline {
+  font-family: var(--font-serif), serif;
+  font-weight: 700;
+  font-size: clamp(2.25rem, 4.2vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.subhead {
+  font-size: clamp(1rem, 1.4vw, 1.1rem);
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 46ch;
+  margin: 0;
+}
+
+.status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.status a {
+  font-weight: 600;
+}
+
+/* ── Phone mockup ──────────────────────────────────────────────────── */
+
+.phone {
+  width: clamp(240px, 27vw, 296px);
+  aspect-ratio: 9 / 19.3;
+  background: #17171a;
+  border-radius: 46px;
+  padding: 12px;
+  box-shadow:
+    0 24px 48px rgba(23, 23, 23, 0.16),
+    0 4px 12px rgba(23, 23, 23, 0.08);
+  position: relative;
+}
+
+.screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--warm-white);
+  border-radius: 34px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.notch {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34%;
+  height: 20px;
+  background: #17171a;
+  border-radius: 12px;
+  z-index: 2;
+}
+
+.statusBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 0;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.statusIcons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.screenContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px 16px 0;
+  overflow: hidden;
+}
+
+.appGreeting {
+  font-family: var(--font-serif), serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--ink);
+  margin: 0;
+}
+
+.appTimeLine {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin: -8px 0 0;
+}
+
+/* Hero panel — recreates TonightHero.tsx: a full-bleed color field, its
+   own glow blobs, eyebrow/title/time/reason, primary pill + map ghost. */
+.heroPanel {
+  position: relative;
+  overflow: hidden;
+  background: #2c2a6b;
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  animation: revealUp 380ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 80ms;
+}
+
+.heroGlowA,
+.heroGlowB {
+  position: absolute;
+  border-radius: 999px;
+  background: #433f94;
+  opacity: 0.5;
+}
+
+.heroGlowA {
+  width: 120px;
+  height: 120px;
+  top: -40px;
+  right: -30px;
+}
+
+.heroGlowB {
+  width: 100px;
+  height: 100px;
+  bottom: -50px;
+  left: -40px;
+  opacity: 0.28;
+}
+
+.heroEyebrow {
+  position: relative;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.heroTitle {
+  position: relative;
+  font-family: var(--font-serif), serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  color: #fff;
+  margin: 3px 0 0;
+}
+
+.heroTime {
+  position: relative;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.72);
+  margin-top: 3px;
+}
+
+.heroReason {
+  position: relative;
+  font-size: 0.68rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 6px 0 0;
+}
+
+.heroActions {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.heroPrimaryBtn {
+  flex: 1;
+  text-align: center;
+  background: #fff;
+  color: #2c2a6b;
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-size: 0.66rem;
+  font-weight: 600;
+}
+
+.heroGhostBtn {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.heroGhostBtn svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* Timeline — recreates EveningTimeline.tsx: a rail of colored nodes
+   connected by a line, no cards. */
+.timelineLabel {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.timelineRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  animation: revealUp 340ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.timelineRow:nth-child(1) {
+  animation-delay: 260ms;
+}
+.timelineRow:nth-child(2) {
+  animation-delay: 340ms;
+}
+.timelineRow:nth-child(3) {
+  animation-delay: 420ms;
+}
+
+.railCol {
+  width: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.node {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  margin-top: 4px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.node--past {
+  background: var(--line);
+}
+
+.node--current {
+  background: var(--primary);
+  width: 10px;
+  height: 10px;
+}
+
+.node--rest {
+  background: transparent;
+  border: 1.3px solid var(--line);
+}
+
+.pulseRing {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--primary);
+  animation: pulse 2600ms ease-out infinite;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(2.8);
+  }
+}
+
+.connector {
+  width: 1.5px;
+  flex: 1;
+  min-height: 14px;
+  background: var(--line);
+  margin-top: 3px;
+  border-radius: 1px;
+}
+
+.rowBody {
+  flex: 1;
+  padding-bottom: 12px;
+  min-width: 0;
+}
+
+.rowMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rowTime {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.rowTime--current {
+  color: var(--primary-dark);
+}
+
+.nowTag {
+  background: var(--lavender);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--primary-dark);
+}
+
+.rowTitle {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 1px 0 0;
+}
+
+.rowTitle--past {
+  color: var(--muted);
+}
+
+.rowReason {
+  font-size: 0.66rem;
+  color: var(--muted);
+  margin: 1px 0 0;
+}
+
+.rowReason--rest {
+  font-style: italic;
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroPanel,
+  .timelineRow {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .pulseRing {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+.homeIndicator {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34%;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(23, 23, 23, 0.3);
+}
+
+.footer {
+  font-size: 0.8rem;
+  color: var(--muted);
+}

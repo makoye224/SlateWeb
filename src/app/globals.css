@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #171717;
+  --warm-white: #faf9f6;
+  --paper: #f3f1ec;
+  --muted: #6b6862;
+  --line: #e6e2da;
+  --primary: #5b5ce2;
+  --primary-dark: #4546b8;
+  --lavender: #e9e8ff;
+
+  --cat-rest-fg: #5c6c52;
+  --cat-rest-bg: #ebf0e6;
+  --cat-pick-fg: #9c5836;
+  --cat-pick-bg: #faeae0;
+  --cat-fixed-fg: var(--primary-dark);
+  --cat-fixed-bg: var(--lavender);
+
+  --background: var(--warm-white);
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-serif: var(--font-fraunces);
+}
+
+/* Derived from SlateApp's Colors.dark — category hues don't have an explicit
+   dark variant in the app yet, so these lighten/desaturate the light-mode
+   hues the same way the rest of Colors.dark does. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f4f1ea;
+    --warm-white: #11110f;
+    --paper: #242420;
+    --muted: #948f84;
+    --line: #2e2c26;
+    --primary: #8a8bef;
+    --primary-dark: #5b5ce2;
+    --lavender: rgba(138, 139, 239, 0.18);
+
+    --cat-rest-fg: #8fab92;
+    --cat-rest-bg: rgba(143, 171, 146, 0.16);
+    --cat-pick-fg: #e0a97e;
+    --cat-pick-bg: rgba(224, 169, 126, 0.16);
+    --cat-fixed-fg: #8a8bef;
+    --cat-fixed-bg: rgba(138, 139, 239, 0.18);
+
+    --background: var(--warm-white);
+    --foreground: var(--ink);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+}
+
+/* Browser surfaces carry the brand too — no unstyled defaults. */
+::selection {
+  background: var(--primary);
+  color: var(--warm-white);
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+a {
+  color: var(--primary-dark);
+  text-underline-offset: 3px;
+}
+
+@media (prefers-color-scheme: dark) {
+  a {
+    color: var(--primary);
+  }
+}
