@@ -162,10 +162,23 @@
 
 .notifyForm {
   display: flex;
-  gap: 8px;
+  align-items: center;
+  gap: 4px;
   margin-top: 4px;
   width: 100%;
   max-width: 360px;
+  padding: 4px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--warm-white);
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.notifyForm:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--lavender);
 }
 
 @media (max-width: 860px) {
@@ -177,31 +190,31 @@
 .notifyInput {
   flex: 1;
   min-width: 0;
-  padding: 12px 16px;
+  padding: 10px 8px 10px 14px;
   border-radius: 999px;
-  border: 1px solid var(--line);
-  background: var(--warm-white);
+  border: none;
+  background: transparent;
   color: var(--ink);
   font-size: 1rem;
   font-family: inherit;
 }
 
 .notifyInput:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
+  outline: none;
 }
 
 .notifyButton {
   flex-shrink: 0;
-  padding: 12px 20px;
+  padding: 10px 18px;
   border-radius: 999px;
   border: none;
   background: var(--primary);
   color: #fff;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
+  white-space: nowrap;
   transition: background-color 160ms ease;
 }
 
