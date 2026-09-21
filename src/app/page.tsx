@@ -208,8 +208,8 @@ export default function Home() {
             <span className={styles.headlineMuted}>A plan for it is.</span>
           </h1>
           <p className={styles.subhead}>
-            A day-by-day plan for the free time you already have &mdash;
-            rest included, solo or with someone you&rsquo;ve already chosen.
+            A day-by-day plan for the free time you already have, rest
+            included, solo or with someone you&rsquo;ve already chosen.
           </p>
           <p className={styles.status}>For iOS and Android. Still in the works.</p>
           <EmailCapture />
