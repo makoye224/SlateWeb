@@ -32,7 +32,7 @@ export default function SubscribeSuccessPage() {
           </span>
           <h1 className={styles.heading}>You&rsquo;re subscribed</h1>
           <p className={styles.message}>
-            Head back to the Slate app — unlimited plans are ready whenever you are.
+            Head back to the Slate app — your plan is ready whenever you are.
           </p>
         </div>
       </main>
