@@ -130,6 +130,12 @@
   margin: 0;
 }
 
+@media (max-width: 860px) {
+  .headline {
+    font-size: clamp(1.9rem, 7vw, 3.25rem);
+  }
+}
+
 .headlineMuted {
   color: var(--primary);
 }
@@ -217,6 +223,12 @@
   position: relative;
 }
 
+@media (max-width: 860px) {
+  .phone {
+    width: min(340px, 84vw);
+  }
+}
+
 .screen {
   position: relative;
   width: 100%;
@@ -263,6 +275,7 @@
   gap: 14px;
   padding: 14px 16px 0;
   overflow: hidden;
+  text-align: left;
 }
 
 .appGreeting {
@@ -730,6 +743,12 @@
   max-width: 240px;
 }
 
+@media (max-width: 860px) {
+  .moreItem {
+    max-width: 320px;
+  }
+}
+
 .moreCaption {
   font-size: 0.95rem;
   line-height: 1.5;
@@ -748,6 +767,12 @@
     0 16px 32px rgba(23, 23, 23, 0.14),
     0 3px 8px rgba(23, 23, 23, 0.07);
   position: relative;
+}
+
+@media (max-width: 860px) {
+  .phoneSmall {
+    width: min(280px, 70vw);
+  }
 }
 
 .sectionTitle {

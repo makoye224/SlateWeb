@@ -45,30 +45,30 @@ const memories = ["/img/memory-1.svg", "/img/memory-2.svg", "/img/memory-3.svg",
 const howSteps: Array<{ title: string; body: string }> = [
   {
     title: "Pick a horizon",
-    body: "Tonight, this week, or a fixed window, like a two-week visit.",
+    body: "Tonight, this week, or a fixed window.",
   },
   {
     title: "Say who's in",
-    body: "Just you, or someone you invite. Everyone already knows each other.",
+    body: "Just you, or someone you've already chosen.",
   },
   {
     title: "Get a day-by-day plan",
-    body: "Specific activities mixed with real rest, each with a one-line reason.",
+    body: "Real activities mixed with real rest, each one explained.",
   },
 ];
 
 const differentiators: Array<{ title: string; body: string }> = [
   {
     title: "Every suggestion explains itself",
-    body: "No “you might like this.” Each item carries the actual reason it's there.",
+    body: "Each item carries the actual reason it's there.",
   },
   {
     title: "Rest is a real suggestion",
-    body: "Not a fallback for an empty slot. A first-class part of the plan, on purpose.",
+    body: "A first-class part of the plan, not a fallback for empty time.",
   },
   {
     title: "Works before you sign up",
-    body: "Build and generate a full plan as a guest. Make an account only if you want to keep it.",
+    body: "Generate a full plan as a guest. Sign up only to keep it.",
   },
 ];
 
@@ -208,9 +208,8 @@ export default function Home() {
             <span className={styles.headlineMuted}>A plan for it is.</span>
           </h1>
           <p className={styles.subhead}>
-            Slate turns the free time you already have into a specific,
-            day-by-day plan, rest included, for yourself, or someone
-            you&rsquo;ve already chosen.
+            A day-by-day plan for the free time you already have &mdash;
+            rest included, solo or with someone you&rsquo;ve already chosen.
           </p>
           <p className={styles.status}>For iOS and Android. Still in the works.</p>
           <EmailCapture />
@@ -264,8 +263,8 @@ export default function Home() {
           Not a calendar.
         </h2>
         <p className={styles.diffLede}>
-          A calendar tells you what&rsquo;s already booked. Slate tells you
-          what to do with what&rsquo;s open.
+          A calendar shows what&rsquo;s booked. Slate shows what to do with
+          what&rsquo;s open.
         </p>
         <div className={styles.diffGrid}>
           {differentiators.map((item) => (
@@ -311,7 +310,7 @@ export default function Home() {
               </div>
             </PhoneFrame>
             <p className={styles.moreCaption}>
-              Browse ideas by mood and category, and drop them into a plan.
+              Browse ideas by mood and category.
             </p>
           </div>
 
@@ -356,8 +355,8 @@ export default function Home() {
               </div>
             </PhoneFrame>
             <p className={styles.moreCaption}>
-              Plans track who&rsquo;s in, how full the days are, and the
-              photos you collect along the way.
+              Tracks who&rsquo;s in, how full the days are, and the photos
+              you collect.
             </p>
           </div>
 
@@ -389,8 +388,7 @@ export default function Home() {
               </div>
             </PhoneFrame>
             <p className={styles.moreCaption}>
-              A private journal for each plan, and every photo saved
-              alongside it.
+              A private journal for each plan, photos included.
             </p>
           </div>
         </div>
