@@ -7,7 +7,7 @@ import styles from "./legal-page.module.css";
  * a native scroll view. Keep the two in sync by hand; there's no shared
  * package between the two repos to enforce it. */
 export const EFFECTIVE_DATE = "September 6, 2026";
-export const CONTACT_EMAIL = "hello@slateapp.com";
+export const CONTACT_EMAIL = "slate@ndotoni.com";
 
 export function LegalPage({ title, children }: { title: string; children: ReactNode }) {
   return (
